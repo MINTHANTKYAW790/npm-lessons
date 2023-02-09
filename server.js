@@ -8,6 +8,10 @@ const users = [
 ];
 
 const server = http.createServer((req, res) => {
+    res.writeHead(200, { "content-type": "application/json" });
+    res.write(`<p>${JSON.stringify(users)}<p>`);
+    res.end();
+    /*
     console.log(req.url, req.method);
     if (req.url === "/" || req.url === "/index.html") {
         const data = fs.readFileSync("index.html");
@@ -57,9 +61,9 @@ const server = http.createServer((req, res) => {
                     res.writeHead(200, { "Content-Type": "application/json" });
                     res.write(JSON.stringify(users));
                 }
-                /*users.push(newUser);
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.write(JSON.stringify(users));*/
+//                 users.push(newUser);
+//       res.writeHead(200, { "Content-Type": "application/json" });
+//       res.write(JSON.stringify(users));
                 res.end();
             });
         } else if (req.method === "DELETE") {
@@ -109,7 +113,7 @@ const server = http.createServer((req, res) => {
         //     res.write(JSON.stringify({ message: "Upload success" }));
         //     res.end();
         // });
-    }
+    }*/
 });
 
 server.listen(3000, () => {
